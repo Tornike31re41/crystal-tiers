@@ -2,6 +2,7 @@
 
 import { Player } from "@/types";
 import { MODE_WITHOUT_OVERALL } from "@/lib/constants";
+import { MinecraftAvatar } from "@/components/common/minecraft-avatar";
 
 export function PlayerCard({
   player,
@@ -18,10 +19,12 @@ export function PlayerCard({
 }) {
   return (
     <article
-      className="grid grid-cols-[52px_40px_1fr_auto] items-center gap-2 rounded-md border border-[#273055] bg-[#111a38] px-2 py-1.5 transition hover:border-[#3f4f84]"
+      className="group grid grid-cols-[52px_40px_1fr_auto] items-center gap-2 rounded-md border border-[#273055] bg-[#111a38] px-2 py-1.5 transition hover:border-[#3f4f84]"
     >
       <div className="font-heading text-2xl font-bold leading-none text-zinc-200">{rank ? `${rank}.` : "#"}</div>
-      <div className="grid h-8 w-8 place-items-center rounded bg-[#273055] text-[10px] text-zinc-300">SK</div>
+      <div className="transition-transform duration-150 group-hover:scale-105">
+        <MinecraftAvatar username={player.username} size={32} />
+      </div>
       <div className="min-w-0">
         <div className="flex items-center gap-2">
           <h3 className="truncate text-sm font-semibold text-zinc-100">{player.username}</h3>
